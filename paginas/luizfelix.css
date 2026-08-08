@@ -1,0 +1,90 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.titulo {
+    background: #001845;
+    color: white;
+    text-align: center;
+    padding: 30px 10px; 
+}
+
+.comeco_titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comeco_titulo h1 {
+    color: #FECB00;
+}
+
+.bandeira {
+    width: 45px;
+}
+
+.conteudo {
+    margin: auto;
+    text-align: center;
+}
+
+.secao_azul {
+    background: #002366;
+    color: white;
+}
+
+.secao_azul h2 {
+    color: #FECB00;
+}
+
+.secao_amarela {
+    background: #FECB00;
+    color: #002366;
+}
+
+.secao_amarela h2 {
+    color: #002366;
+}
+
+.secao_branca {
+    background: white;
+    color: black;
+}
+
+.secao_branca h2 {
+    color: #002366;
+}
+
+.parte_cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card_comida {
+    background: white;
+    color: black;
+    width: 40%;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+
+.card_comida img {
+    width: 100%;
+    height: 180px;
+}
+
+.texto_card {
+    text-align: left;
+}
+
+.texto_card h3 {
+    color: #002366;
+}
+
+.secao_azul, 
+.secao_amarela, 
+.secao_branca {
+    padding: 40px 0;
+}
