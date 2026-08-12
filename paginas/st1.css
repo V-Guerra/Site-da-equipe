@@ -1,0 +1,139 @@
+        body {
+            background-color: #fff5f5;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222222;
+            margin: 0;
+        }
+
+        #cabecalho {
+            background-color: #bc002d;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #cabecalho h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        #cabecalho p {
+            font-size: 18px;
+        }
+
+        #menu {
+            background-color: #222222;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        #menu a:hover {
+            color: #bc002d;
+        }
+
+        .secao {
+            padding: 25px 30px;
+            margin: 25px auto;
+            max-width: 900px;
+            background-color: white;
+            border-left: 8px solid #bc002d;
+            box-shadow: 3px 3px 10px #cccccc;
+        }
+
+        .titulo-secao {
+            color: black;
+            font-size: 26px;
+            border-bottom: 3px solid #bc002d;
+            padding-bottom: 8px;
+        }
+
+        /* caixa dos lugares na horizontal */
+        .caixas-lugares {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .lugar {
+            background-color: #ffe6e6;
+            border: 1px solid #bc002d;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            padding-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .lugar img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lugar h3 {
+            margin: 8px 0 5px 0;
+            color: #bc002d;
+        }
+
+        .lugar p {
+            font-size: 14px;
+            padding: 0 8px;
+        }
+
+        /* caixas da seção cultura */
+        .caixas-cultura {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .item-cultura {
+            background-color: #ffe6e6;
+            border: 1px solid #bc002d;
+            border-radius: 8px;
+            width: 220px;
+            text-align: center;
+            padding-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .item-cultura img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-cultura h3 {
+            margin: 8px 0 5px 0;
+            color: #bc002d;
+        }
+
+        .item-cultura p {
+            font-size: 14px;
+            padding: 0 8px;
+        }
+
+        ul {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        #rodape {
+            background-color: #222222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
