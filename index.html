@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal dos Países - Copa do Mundo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent-gold: #fbbf24;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.1) 0%, transparent 40%);
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 30px;
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d97706, #fbbf24);
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .country-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .country-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .country-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(251, 191, 36, 0.1);
+        }
+
+        .country-card:hover::before {
+            opacity: 1;
+        }
+
+        .flag-wrapper {
+            width: 100px;
+            height: 70px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .flag-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .country-card:hover .flag-img {
+            transform: scale(1.08);
+        }
+
+        .country-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .country-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .btn-access {
+            width: 100%;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .country-card:hover .btn-access {
+            background-color: var(--accent-gold);
+            color: #0f172a;
+            border-color: var(--accent-gold);
+        }
+
+        .btn-access svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .country-card:hover .btn-access svg {
+            transform: translateX(4px);
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">Explorar Nações</span>
+        <h1>Conheça os Países</h1>
+        <p class="subtitle">Selecione um país para abrir sua respectiva página com detalhes sobre cultura, história e futebol.</p>
+    </header>
+
+    <main>
+        <div class="grid-container">
+
+            <a href="paginas/PagCaboVerde/gustavo.html" class="country-card">
+                <div class="flag-wrapper">
+                    <img src="https://flagcdn.com/w160/cv.png" alt="Bandeira de Cabo Verde" class="flag-img">
+                </div>
+                <h2 class="country-name">Cabo Verde</h2>
+                <p class="country-desc">Arquipélago do Atlântico, história rica e a grande campanha na Copa.</p>
+                <div class="btn-access">
+                    <span>Acessar Página</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </a>
+
+            <a href="paginas/PagBosnia/luizfelix.html" class="country-card">
+                <div class="flag-wrapper">
+                    <img src="https://flagcdn.com/w160/ba.png" alt="Bandeira da Bósnia e Herzegovina" class="flag-img">
+                </div>
+                <h2 class="country-name">Bósnia e Herzegovina</h2>
+                <p class="country-desc">Cultura no coração dos Balcãs, gastronomia tradicional e a paixão dos Dragões.</p>
+                <div class="btn-access">
+                    <span>Acessar Página</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </a>
+
+            <a href="paginas/PagEgito/egito.html" class="country-card">
+                <div class="flag-wrapper">
+                    <img src="https://flagcdn.com/w160/eg.png" alt="Bandeira do Egito" class="flag-img">
+                </div>
+                <h2 class="country-name">Egito</h2>
+                <p class="country-desc">Berço da civilização, pirâmides históricas e os Faraós do futebol africano.</p>
+                <div class="btn-access">
+                    <span>Acessar Página</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </a>
+
+            <a href="paginas/PagMarrocos/malukety.html" class="country-card">
+                <div class="flag-wrapper">
+                    <img src="https://flagcdn.com/w160/ma.png" alt="Bandeira de Marrocos" class="flag-img">
+                </div>
+                <h2 class="country-name">Marrocos</h2>
+                <p class="country-desc">Cidades imperiais, rica gastronomia e a história dos Leões do Atlas.</p>
+                <div class="btn-access">
+                    <span>Acessar Página</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </a>
+
+            <a href="paginas/PagJapao/vinicius.html" class="country-card">
+                <div class="flag-wrapper">
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Bandeira do Japão" class="flag-img">
+                </div>
+                <h2 class="country-name">Japão</h2>
+                <p class="country-desc">Tradição milenar, tecnologia, cultura pop e a terra do sol nascente.</p>
+                <div class="btn-access">
+                    <span>Acessar Página</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Culturas e Futebol • Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
